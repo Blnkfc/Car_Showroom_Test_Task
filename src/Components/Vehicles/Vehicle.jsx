@@ -1,8 +1,9 @@
 const Vehicle = (props) => {
+    console.log(props)
     return(
         <>
         <h1>VEHICLES</h1>
-        <h2>{props.id}</h2>
+        <h2>{props.data.id}</h2>
         </>
     )
 }
