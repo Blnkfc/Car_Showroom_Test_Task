@@ -1,0 +1,22 @@
+.sidebar{
+    flex-grow: 1;
+    &__search{
+        display: flex;
+        height: 2em;
+        input{
+            height: 2em;
+        }
+        button{
+            width: 2em;
+            height: 2em;
+            img{
+                width: 100%;
+
+            }
+        }
+    }
+    &__title{
+        color: white;
+    }
+
+}

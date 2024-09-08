@@ -1,8 +1,16 @@
 .homepage{
     display: flex;
+    background: black;
     width: 100%;
+    min-height: 100dvh;
+    gap: 1em;
+    padding: 1em;
     &__feed{
+        position: relative;
         width: 75%;
+        height: 100%;
         display: flex;
+        flex-wrap: wrap;
+        gap: 2em;
     }
 }

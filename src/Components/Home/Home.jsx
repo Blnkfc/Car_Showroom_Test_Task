@@ -14,7 +14,8 @@ const Home = () => {
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const result = await fetch(`https://dummyjson.com/products/category/vehicle${queryParams}`)
+                console.log(queryParams)
+                const result = await fetch(`https://dummyjson.com/products/${queryParams.includes('search?q')?queryParams:`category/vehicle${queryParams}`}`)
                 const data = await result.json()
                 setVehicleList(data)
                 return data
