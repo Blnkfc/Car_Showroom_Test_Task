@@ -9,7 +9,19 @@ import './VehicleDetails.css'
 const VehicleDetails = () => {
     const [vehicleData, setVehicleData] = useState()
     const [reviewInputValue, setReviewInputValue] = useState('')
+    const [newRating, setNewRating] = useState()
+    const [storedReviews, setStoredReviews] = useState([])
     const { slug } = useParams()
+
+    class Review {
+        constructor(rating, comment) {
+            this.reviewerName = "Guest";
+            this.reviewerEmail = "guest@email.com";
+            this.rating = rating;
+            this.comment = comment
+            this.date = new Date()
+        }
+    }
 
     var settings = {
         arrows: true,
@@ -32,12 +44,29 @@ const VehicleDetails = () => {
             }
         }
         fetchVehicleData()
+        setStoredReviews(JSON.parse(localStorage.getItem("reviewList")))
     }, [])
     console.log(vehicleData)
 
 
     const hanldeReviewInputChange = (event) => {
         setReviewInputValue(event.target.value)
+    }
+
+    const handleStarRating = (rating) => {
+        setNewRating(rating + 1)
+    }
+    const addReview = () => {
+        const review = new Review(newRating, reviewInputValue)
+        const reviewList = localStorage.getItem('reviewList')?JSON.parse(localStorage.getItem('reviewList')):[]
+        reviewList.push(review)
+
+        console.log(`addReview constructed review: ${JSON.stringify(review)}`)
+        console.log(`addReview stored Review: ${JSON.stringify(reviewList)}`)
+        localStorage.setItem('reviewList', JSON.stringify(reviewList))
+        setStoredReviews(reviewList)
+        setReviewInputValue('')
+        setNewRating(undefined)
     }
 
     const imgs = vehicleData?.images.map((i, index) => { return (<div> <img src={i} alt={`img${index}`} /> </div>) })
@@ -81,14 +110,23 @@ const VehicleDetails = () => {
             </div>
             <div className="commentSection" >
                 <div className="commentSection__reviews" >
-                {
-                    vehicleData?.reviews.map((r) => { return <ReviewBox data={r} /> })
-                }
+                    {
+                        vehicleData?.reviews.map((r) => { return <ReviewBox data={r} /> })
+                    }
+                    {
+                        storedReviews?.map((r) => { return <ReviewBox data={r} /> })
+                    }
                 </div>
                 <div className="commentSection__add" >
                     <h3>Add review</h3>
-                    <textarea onChange={hanldeReviewInputChange} name="Review area" placeholder="Write your review here" >  </textarea>
-                    <button>&#x271A;</button>
+                    <textarea onChange={hanldeReviewInputChange} name="Review area" value={reviewInputValue} >  </textarea>
+                    <button onClick={() => addReview()} >&#x271A;</button>
+                    <div className="commentSection__add__starRating" >
+                        {['★', '★', '★', '★', '★']
+                            .map((s, index) => {
+                                return (<span style={{ color: newRating == (index + 1) ? "yellow" : "white" }} onClick={() => handleStarRating(index)} >{s}</span>)
+                            })}
+                    </div>
                 </div>
             </div>
         </>

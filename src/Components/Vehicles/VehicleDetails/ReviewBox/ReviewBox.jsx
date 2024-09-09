@@ -3,8 +3,6 @@ import './ReviewBox.css'
 
 const ReviewBox = (props) => {
 
-    console.log('data:')
-
     const date = new Date(props?.data.date)
     return (
         <div className="review" >
