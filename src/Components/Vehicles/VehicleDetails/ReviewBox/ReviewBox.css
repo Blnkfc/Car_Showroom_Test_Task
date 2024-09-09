@@ -1,0 +1,50 @@
+.review {
+  display: flex;
+  width: 100%;
+  padding: 0.5em;
+  flex-direction: column;
+  color: white;
+  border: solid 2px white;
+  border-radius: 0.5em;
+  margin-bottom: 1em;
+}
+.review__sender {
+  display: flex;
+  position: relative;
+  align-items: center;
+  border-bottom: solid 1px gray;
+  padding: 0.5em;
+  gap: 1em;
+}
+.review__sender__avatar {
+  width: 3em;
+  height: 3em;
+  filter: brightness(0) saturate(100%) invert(99%) sepia(99%) saturate(2%) hue-rotate(103deg) brightness(103%) contrast(100%);
+}
+.review__sender__info {
+  display: flex;
+  flex-direction: column;
+}
+.review__sender__info__name {
+  font-size: 1.2em;
+}
+.review__sender__info__email {
+  color: gray;
+  font-size: 0.8em;
+}
+.review__sender__rating {
+  font-size: 1.5em;
+  position: absolute;
+  right: 0;
+}
+.review__sender__rating span {
+  color: yellow;
+}
+.review__content {
+  margin-top: 1em;
+}
+.review__date {
+  text-align: end;
+  font-size: 0.8em;
+  color: gray;
+}/*# sourceMappingURL=ReviewBox.css.map */

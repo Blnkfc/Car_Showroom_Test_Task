@@ -26,10 +26,12 @@
         position: relative;
         transition: all linear 75ms;
         clip-path: border-box;
-        img{
+
+        img {
             width: 100%;
         }
-        &:hover{
+
+        &:hover {
             &::after {
                 content: "";
                 display: block;
@@ -54,6 +56,7 @@
         text-decoration: none;
         font-weight: bold;
         margin-bottom: 1em;
+        text-align: center;
         transition: background-color ease-in 150ms;
 
         &:hover {

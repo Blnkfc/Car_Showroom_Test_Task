@@ -1,12 +1,14 @@
 import { useEffect, useState } from "react"
 import { useParams } from "react-router-dom"
 import Slider from 'react-slick'
+import ReviewBox from "./ReviewBox/ReviewBox.jsx";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import './VehicleDetails.css'
 
 const VehicleDetails = () => {
     const [vehicleData, setVehicleData] = useState()
+    const [reviewInputValue, setReviewInputValue] = useState('')
     const { slug } = useParams()
 
     var settings = {
@@ -33,11 +35,16 @@ const VehicleDetails = () => {
     }, [])
     console.log(vehicleData)
 
+
+    const hanldeReviewInputChange = (event) => {
+        setReviewInputValue(event.target.value)
+    }
+
     const imgs = vehicleData?.images.map((i, index) => { return (<div> <img src={i} alt={`img${index}`} /> </div>) })
 
 
     return (
-        <>
+        < >
             <div className="vehicleDetails" >
                 <section className="vehicleDetails__carousel" >
                     <Slider {...settings}>
@@ -65,12 +72,24 @@ const VehicleDetails = () => {
                     <p className="vehicleDetails__info__price" >
                         Price: <s>{vehicleData?.price}</s>
                         <span
-                        className="vehicleDetails__info__price__discounted"
-                            style={{ display: (vehicleData?.discountPercentage != 0) ? "inline-block" : "none"}} >
+                            className="vehicleDetails__info__price__discounted"
+                            style={{ display: (vehicleData?.discountPercentage != 0) ? "inline-block" : "none" }} >
                             {(vehicleData?.price * ((100 - vehicleData?.discountPercentage) / 100)).toFixed(2)} <sup  >-{vehicleData?.discountPercentage}%</sup>
                         </span>
                         <sub>{vehicleData?.stock} left</sub> </p>
                 </section>
+            </div>
+            <div className="commentSection" >
+                <div className="commentSection__reviews" >
+                {
+                    vehicleData?.reviews.map((r) => { return <ReviewBox data={r} /> })
+                }
+                </div>
+                <div className="commentSection__add" >
+                    <h3>Add review</h3>
+                    <textarea onChange={hanldeReviewInputChange} name="Review area" placeholder="Write your review here" >  </textarea>
+                    <button>&#x271A;</button>
+                </div>
             </div>
         </>
     )

@@ -8,7 +8,7 @@ const useStore = create((set) => ({
     'stock',
     'weight'
   ],
-  tags:[
+  tags: [
     'sedan',
     'sport',
     'hatchback',

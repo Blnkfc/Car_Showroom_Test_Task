@@ -5,6 +5,11 @@
   display: flex;
   height: 2em;
 }
+.sidebar__search__clear {
+  background-color: rgb(236, 109, 109);
+  color: white;
+  border: none;
+}
 .sidebar__search input {
   height: 2em;
 }

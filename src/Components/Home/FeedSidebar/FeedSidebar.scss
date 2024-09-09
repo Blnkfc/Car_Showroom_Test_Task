@@ -5,6 +5,12 @@
         display: flex;
         height: 2em;
 
+        &__clear {
+            background-color: rgb(236, 109, 109);
+            color: white;
+            border: none;
+        }
+
         input {
             height: 2em;
         }
@@ -39,30 +45,34 @@
                 color: white;
                 background: rgb(70, 70, 70);
                 padding: 0.5em 1em 0.5em 1em;
-                border:solid 1px white;
+                border: solid 1px white;
                 border-radius: 0.5em;
                 transition: background-color linear 150ms;
-                &:hover{
+
+                &:hover {
                     background: white;
                     color: black;
-                }   
+                }
             }
         }
-        &__params{
+
+        &__params {
             display: flex;
             flex-wrap: wrap;
             gap: 0.3em;
-            &__btn{
+
+            &__btn {
                 color: white;
                 background: rgb(70, 70, 70);
                 padding: 0.5em 1em 0.5em 1em;
-                border:solid 1px white;
+                border: solid 1px white;
                 border-radius: 0.5em;
                 transition: background-color linear 150ms;
-                &:hover{
+
+                &:hover {
                     background: white;
                     color: black;
-                }   
+                }
             }
         }
     }

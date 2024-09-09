@@ -1,0 +1,59 @@
+.review {
+    display: flex;
+    width: 100%;
+    padding: 0.5em;
+    flex-direction: column;
+    color: white;
+    border: solid 2px white;
+    border-radius: 0.5em;
+    margin-bottom: 1em;
+
+    &__sender {
+        display: flex;
+        position: relative;
+        align-items: center;
+        border-bottom: solid 1px gray;
+        padding: 0.5em;
+        gap: 1em;
+
+        &__avatar {
+            width: 3em;
+            height: 3em;
+            filter: brightness(0) saturate(100%) invert(99%) sepia(99%) saturate(2%) hue-rotate(103deg) brightness(103%) contrast(100%);
+        }
+
+        &__info {
+            display: flex;
+            flex-direction: column;
+
+            &__name {
+                font-size: 1.2em;
+            }
+
+            &__email {
+                color: gray;
+                font-size: 0.8em;
+            }
+        }
+
+        &__rating {
+            font-size: 1.5em;
+            position: absolute;
+            right: 0;
+
+            span {
+                color: yellow;
+            }
+        }
+    }
+
+    &__content {
+        margin-top: 1em;
+    }
+
+    &__date {
+        text-align: end;
+        font-size: 0.8em;
+        color: gray;
+    }
+}

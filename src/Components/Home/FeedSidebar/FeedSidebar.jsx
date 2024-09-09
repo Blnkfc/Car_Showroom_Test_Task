@@ -1,6 +1,6 @@
 import './FeedSidebar.css'
 import useStore from '../../../store.js'
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 const FeedSidebar = () => {
     const [inputValue, setInputValue] = useState('');
@@ -17,6 +17,9 @@ const FeedSidebar = () => {
             setQueryParams(`search?q=${inputValue}`)
         } else { setQueryParams('') }
     }
+    useEffect(() => {
+        handleSeacrh()
+    }, [inputValue])
 
     return (
         <>
@@ -25,21 +28,22 @@ const FeedSidebar = () => {
                 <div className='sidebar__search' >
                     <input type="text" value={inputValue} onChange={handleInputChange} />
                     <button onClick={handleSeacrh} > <img src="https://cdn-icons-png.flaticon.com/512/11741/11741045.png" alt="Search" /> </button>
+                    <button className='sidebar__search__clear' onClick={() => setInputValue("")} style={{ display: inputValue == "" ? "none" : "inline-block" }} > X </button>
                 </div>
                 <div className='sidebar__controls' >
                     <h3>Search by car type</h3>
                     <div className='sidebar__controls__tags'>
                         {tags.map((t) => {
                             if (t) {
-                                return <button className='sidebar__controls__tags__btn' onClick={() => setInputValue(t)} >{t}</button>
+                                return <button className='sidebar__controls__tags__btn' onClick={() => { setInputValue(t), handleSeacrh() }} >{t}</button>
                             }
                         })}
                     </div>
                     <h3>Sort by parameters</h3>
                     <div className='sidebar__controls__params'>
                         {sortParams.map((p) => {
-                            if(p){
-                                return <button className='sidebar__controls__params__btn' onClick={() => setQueryParams(`?sortBy=${p}&order=desc`) } >{p}</ button>  
+                            if (p) {
+                                return <button className='sidebar__controls__params__btn' onClick={() => setQueryParams(`?sortBy=${p}&order=desc`)} >{p}</ button>
                             }
                         })}
                     </div>

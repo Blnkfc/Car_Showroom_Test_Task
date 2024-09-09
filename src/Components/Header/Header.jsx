@@ -3,9 +3,9 @@ import './Header.css'
 const Header = () => {
     return (
         <>
-        <header className="header" >
-            Test task "car showroom"
-        </header>
+            <header className="header" >
+                Test task "car showroom"
+            </header>
         </>
     )
 }

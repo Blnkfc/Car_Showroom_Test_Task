@@ -22,6 +22,7 @@
   display: flex;
   flex-direction: column;
   width: 40%;
+  position: relative;
 }
 .vehicleDetails__info__subtitle {
   display: flex;
@@ -52,10 +53,14 @@
 }
 .vehicleDetails__info__additional p {
   color: rgb(186, 186, 186);
-  margin-left: 0.3em;
+  margin-left: 0.8em;
+  margin-top: 0.4em;
 }
 .vehicleDetails__info__price {
+  position: absolute;
+  bottom: 0;
   font-size: 2em;
+  align-self: flex-end;
 }
 .vehicleDetails__info__price s {
   color: gray;
@@ -70,6 +75,47 @@
 }
 .vehicleDetails__info__price sub {
   font-size: 0.5em;
+}
+
+.commentSection {
+  display: flex;
+  padding: 1em;
+  width: 100%;
+  height: 100%;
+  gap: 2em;
+}
+.commentSection__reviews {
+  flex-grow: 1;
+}
+.commentSection__add {
+  display: flex;
+  flex-direction: column;
+  color: white;
+  min-width: 35%;
+}
+.commentSection__add textarea {
+  width: 100%;
+  height: 10em;
+  resize: none;
+  padding: 0.5em;
+  border: none;
+}
+.commentSection__add textarea:focus {
+  outline: none;
+}
+.commentSection__add button {
+  padding: 0.2em 1em;
+  font-size: 1em;
+  color: rgb(59, 231, 136);
+  background-color: white;
+  border: none;
+  align-self: flex-end;
+  border-radius: 0 0 0.5em 0.5em;
+  transition: background-color linear 150ms;
+}
+.commentSection__add button:hover {
+  background-color: rgb(59, 231, 136);
+  color: white;
 }
 
 .slick-prev {
