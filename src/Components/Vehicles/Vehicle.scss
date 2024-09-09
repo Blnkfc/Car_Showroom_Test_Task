@@ -1,7 +1,8 @@
 .vehicle {
     display: flex;
     flex-flow: column wrap;
-    width: 30%;
+    min-width: 30%;
+    max-width: 40%;
     padding: 0.5em;
     border: solid 2px white;
     border-radius: 1em;

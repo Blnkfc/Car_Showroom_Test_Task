@@ -17,4 +17,41 @@
 }
 .sidebar__title {
   color: white;
+}
+.sidebar__controls h3 {
+  color: white;
+}
+.sidebar__controls__tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.3em;
+}
+.sidebar__controls__tags__btn {
+  color: white;
+  background: rgb(70, 70, 70);
+  padding: 0.5em 1em 0.5em 1em;
+  border: solid 1px white;
+  border-radius: 0.5em;
+  transition: background-color linear 150ms;
+}
+.sidebar__controls__tags__btn:hover {
+  background: white;
+  color: black;
+}
+.sidebar__controls__params {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.3em;
+}
+.sidebar__controls__params__btn {
+  color: white;
+  background: rgb(70, 70, 70);
+  padding: 0.5em 1em 0.5em 1em;
+  border: solid 1px white;
+  border-radius: 0.5em;
+  transition: background-color linear 150ms;
+}
+.sidebar__controls__params__btn:hover {
+  background: white;
+  color: black;
 }/*# sourceMappingURL=FeedSidebar.css.map */

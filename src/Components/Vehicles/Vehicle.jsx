@@ -9,7 +9,7 @@ const Vehicle = (props) => {
                 <div className='vehicle__thumbnail' >
                     <img  src={props.data.thumbnail} alt="Thumbnail" />
                 </div>
-                <Link className='vehicle__link'  >Check out <span> &#8594; </span>  </Link>
+                <Link to={`/vehicles/${props.data.id}`} className='vehicle__link'  >Check out <span> &#8594; </span>  </Link>
             </div>
         </>
     )

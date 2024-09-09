@@ -9,12 +9,12 @@ const useStore = create((set) => ({
     'weight'
   ],
   tags:[
-    'sedans',
-    'sports cars',
-    'hatchbacks',
-    'compact cars',
-    'suvs',
-    'minivans'
+    'sedan',
+    'sport',
+    'hatchback',
+    'compact',
+    'suv',
+    'minivan'
   ],
 
   setQueryParams: (newQueryParams) => set((state) => ({ queryParams: newQueryParams }))

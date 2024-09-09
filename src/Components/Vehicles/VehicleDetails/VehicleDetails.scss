@@ -1,0 +1,106 @@
+.vehicleDetails {
+    color: white;
+    padding: 1em;
+    display: flex;
+    gap: 4em;
+
+    &__carousel {
+        display: block;
+        flex-grow: 1;
+        width: 50%;
+        overflow: hidden;
+        border: solid 1px white;
+        border-radius: 2em;
+
+        &__imgWrapper {
+            width: 100%;
+
+            img {
+                width: 100%;
+            }
+        }
+    }
+
+    &__info {
+        display: flex;
+        flex-direction: column;
+        width: 40%;
+
+        &__title {}
+
+        &__subtitle {
+            display: flex;
+            justify-content: space-between;
+            border-bottom: solid 1px white;
+            padding: 0.2em 0 0.2em 0;
+            width: 100%;
+
+            &__tag {
+                margin-right: 0.3em;
+            }
+
+            &__rating {
+                display: inline-block;
+                text-align: end;
+
+                span {
+                    color: yellow;
+                }
+            }
+
+        }
+
+        &__description {
+            margin: 1em 0;
+        }
+
+        &__additional {
+            border-bottom: solid 1px white;
+            padding-bottom: 1em;
+
+            summary {
+                &:hover {
+                    cursor: pointer;
+                }
+            }
+
+            p {
+                color: rgb(186, 186, 186);
+                margin-left: 0.3em;
+            }
+        }
+
+        &__price {
+            font-size: 2em;
+
+            s {
+                color: gray;
+                font-size: 0.5em;
+            }
+
+            &__discounted {
+                color: red;
+                font-size: 2rem;
+
+                sup {
+                    font-size: 0.5em;
+                }
+            }
+
+            sub {
+                font-size: 0.5em;
+            }
+
+        }
+    }
+}
+
+.slick-prev {
+    left: 3% !important;
+    z-index: 1;
+}
+
+.slick-next {
+    right: 3% !important;
+    z-index: 1;
+}
