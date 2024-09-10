@@ -1,6 +1,7 @@
 import './FeedSidebar.css'
 import useStore from '../../../store.js'
 import { useEffect, useState } from 'react';
+import ParamBtn from './ParamBtn/ParamBtn.jsx';
 
 const FeedSidebar = () => {
     const [inputValue, setInputValue] = useState('');
@@ -43,7 +44,7 @@ const FeedSidebar = () => {
                     <div className='sidebar__controls__params'>
                         {sortParams.map((p) => {
                             if (p) {
-                                return <button className='sidebar__controls__params__btn' onClick={() => setQueryParams(`?sortBy=${p}&order=desc`)} >{p}</ button>
+                                return <ParamBtn data={p} /> 
                             }
                         })}
                     </div>

@@ -8,20 +8,10 @@ import './VehicleDetails.css'
 
 const VehicleDetails = () => {
     const [vehicleData, setVehicleData] = useState()
+    const [storedReviews, setStoredReviews] = useState([])
     const [reviewInputValue, setReviewInputValue] = useState('')
     const [newRating, setNewRating] = useState()
-    const [storedReviews, setStoredReviews] = useState([])
     const { slug } = useParams()
-
-    class Review {
-        constructor(rating, comment) {
-            this.reviewerName = "Guest";
-            this.reviewerEmail = "guest@email.com";
-            this.rating = rating;
-            this.comment = comment
-            this.date = new Date()
-        }
-    }
 
     var settings = {
         arrows: true,
@@ -31,6 +21,16 @@ const VehicleDetails = () => {
         slidesToScroll: 1,
         className: 'vehicleDetails__carousel__imgWrapper',
     };
+
+    class Review {
+        constructor(rating, comment) {
+            this.reviewerName = "Guest";
+            this.reviewerEmail = "guest@email.com";
+            this.rating = rating;
+            this.comment = comment;
+            this.date = new Date();
+        }
+    }
 
 
     useEffect(() => {
@@ -57,8 +57,9 @@ const VehicleDetails = () => {
         setNewRating(rating + 1)
     }
     const addReview = () => {
+        if( newRating || reviewInputValue){
         const review = new Review(newRating, reviewInputValue)
-        const reviewList = localStorage.getItem('reviewList')?JSON.parse(localStorage.getItem('reviewList')):[]
+        const reviewList = localStorage.getItem('reviewList') ? JSON.parse(localStorage.getItem('reviewList')) : []
         reviewList.push(review)
 
         console.log(`addReview constructed review: ${JSON.stringify(review)}`)
@@ -67,11 +68,15 @@ const VehicleDetails = () => {
         setStoredReviews(reviewList)
         setReviewInputValue('')
         setNewRating(undefined)
+        }else{
+            alert('Rating and comment are empty, consider filling the form.')
+        }
     }
+
 
     const imgs = vehicleData?.images.map((i, index) => { return (<div> <img src={i} alt={`img${index}`} /> </div>) })
 
-
+    //TODO CHECK FOR MESSAAGE AND RATING BEFORE ADDING REVIEW  
     return (
         < >
             <div className="vehicleDetails" >
