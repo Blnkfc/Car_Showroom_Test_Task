@@ -1,4 +1,5 @@
 .vehicleDetails {
+    display: flex;
     color: white;
     padding: 1em;
     display: flex;
@@ -177,4 +178,75 @@
 .slick-next {
     right: 3% !important;
     z-index: 1;
+}
+
+
+@media(max-width: 1020px){
+    .vehicleDetails{
+        &__info{
+            &__price{
+                position: static;
+                font-size: 1.9em;
+                &__discounted{
+                    font-size: 0.8em;
+                }
+            }
+        }
+    }
+}
+
+
+
+@media(max-width:880px){
+    .vehicleDetails{
+        gap: 1em;
+        &__carousel{
+            height: fit-content;
+        }
+        &__info{
+            &__price{
+                position: static;
+                font-size: 1.6em;
+                s{
+                    display: none;
+                }
+                sub{
+                    display: none;
+                }
+                &__discounted{
+                    font-size: 1em;
+                }
+            }
+        }
+    }
+
+    .commentSection{
+        &__add{
+            textarea{
+                height: 6em;
+            }
+        }
+    }
+}
+
+
+
+@media (max-width: 640px) {
+    .vehicleDetails{
+        flex-direction: column;
+        &__carousel{
+            width: 100%;
+        }
+        &__info{
+            width: 100%;
+
+            &__price{
+                position: static;
+            }
+        }
+    }
+    .commentSection{
+        flex-direction: column-reverse;
+        
+    }
 }

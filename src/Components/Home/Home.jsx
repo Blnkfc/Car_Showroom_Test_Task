@@ -46,7 +46,9 @@ const Home = () => {
                         })}
 
                 </section>
+                <div className="homepage__sidebar">
                 <FeedSidebar />
+                </div>
             </div>
         </>
     )

@@ -32,6 +32,12 @@
   color: gray;
   font-size: 0.8em;
 }
+.review__sender__info__email__full {
+  display: block;
+}
+.review__sender__info__email__short {
+  display: none;
+}
 .review__sender__rating {
   font-size: 1.5em;
   position: absolute;
@@ -47,4 +53,13 @@
   text-align: end;
   font-size: 0.8em;
   color: gray;
+}
+
+@media (max-width: 640px) {
+  .review__sender__info__email__full {
+    display: none;
+  }
+  .review__sender__info__email__short {
+    display: block;
+  }
 }/*# sourceMappingURL=ReviewBox.css.map */

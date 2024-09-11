@@ -1,9 +1,53 @@
 .header {
   border-bottom: solid 1px white;
+  display: flex;
+  justify-content: space-between;
+  padding: 0 1em;
+  align-items: center;
+  position: relative;
+  padding-bottom: 0.2em;
 }
 .header a {
   color: white;
   font-size: 2em;
-  margin-bottom: 0.5em;
   text-decoration: none;
+}
+.header__sidebar {
+  color: white;
+}
+.header__sidebar__expander {
+  display: none;
+  font-size: 4em;
+  background-color: black;
+  color: white;
+  border: none;
+}
+.header__sidebar__mobile {
+  display: none;
+  width: 100%;
+  opacity: 95%;
+}
+.header__sidebar__mobile summary {
+  list-style: none;
+  font-size: 2em;
+}
+
+@media (max-width: 640px) {
+  .header__sidebar__expander {
+    display: block;
+  }
+  .header__sidebar__mobile {
+    display: block;
+    color: white;
+    position: absolute;
+    right: 0;
+    text-align: end;
+    z-index: 998;
+  }
+  .header__sidebar__mobile summary {
+    z-index: 999;
+  }
+  .header__sidebar__mobile[open] summary {
+    transform: translateY(660%);
+  }
 }/*# sourceMappingURL=Header.css.map */

@@ -1,4 +1,5 @@
 .vehicleDetails {
+  display: flex;
   color: white;
   padding: 1em;
   display: flex;
@@ -145,4 +146,56 @@
 .slick-next {
   right: 3% !important;
   z-index: 1;
+}
+
+@media (max-width: 1020px) {
+  .vehicleDetails__info__price {
+    position: static;
+    font-size: 1.9em;
+  }
+  .vehicleDetails__info__price__discounted {
+    font-size: 0.8em;
+  }
+}
+@media (max-width: 880px) {
+  .vehicleDetails {
+    gap: 1em;
+  }
+  .vehicleDetails__carousel {
+    height: -moz-fit-content;
+    height: fit-content;
+  }
+  .vehicleDetails__info__price {
+    position: static;
+    font-size: 1.6em;
+  }
+  .vehicleDetails__info__price s {
+    display: none;
+  }
+  .vehicleDetails__info__price sub {
+    display: none;
+  }
+  .vehicleDetails__info__price__discounted {
+    font-size: 1em;
+  }
+  .commentSection__add textarea {
+    height: 6em;
+  }
+}
+@media (max-width: 640px) {
+  .vehicleDetails {
+    flex-direction: column;
+  }
+  .vehicleDetails__carousel {
+    width: 100%;
+  }
+  .vehicleDetails__info {
+    width: 100%;
+  }
+  .vehicleDetails__info__price {
+    position: static;
+  }
+  .commentSection {
+    flex-direction: column-reverse;
+  }
 }/*# sourceMappingURL=VehicleDetails.css.map */

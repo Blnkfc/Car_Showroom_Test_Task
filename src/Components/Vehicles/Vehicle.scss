@@ -73,3 +73,46 @@
         }
     }
 }
+
+@media (max-width: 1480px) {
+    .vehicle{
+        max-width: 30%;
+    }
+}
+
+
+
+@media (max-width: 1020px) {
+    .vehicle{
+        max-width: 48%;
+    }
+}
+
+
+@media(max-width:880px){
+    .vehicle{
+        position: relative;
+        max-width: 48%;
+        &__name{
+            position: absolute;
+            z-index: 10;
+            font-size: 0.8em;
+            height: unset;
+            width: 100%;
+            left: 0;
+        }
+    }
+}
+
+
+@media(max-width: 440px){
+    .vehicle{
+        min-width: 90% !important;  
+    }
+}
+
+@media(max-width: 640px){
+    .vehicle{
+        min-width: 45%;
+    }
+}

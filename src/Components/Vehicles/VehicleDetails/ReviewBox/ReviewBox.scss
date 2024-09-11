@@ -33,6 +33,12 @@
             &__email {
                 color: gray;
                 font-size: 0.8em;
+                &__full{
+                    display: block;
+                }
+                &__short{
+                    display: none;
+                }
             }
         }
 
@@ -55,5 +61,23 @@
         text-align: end;
         font-size: 0.8em;
         color: gray;
+    }
+}
+
+
+@media (max-width: 640px) {
+    .review{
+        &__sender{
+            &__info{
+                &__email{
+                    &__full{
+                        display: none;
+                    }
+                    &__short{
+                        display: block;
+                    }
+                }
+            }
+        }
     }
 }
