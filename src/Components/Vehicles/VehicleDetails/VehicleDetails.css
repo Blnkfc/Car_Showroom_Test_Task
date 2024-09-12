@@ -68,7 +68,7 @@
   font-size: 0.5em;
 }
 .vehicleDetails__info__price__discounted {
-  color: red;
+  color: rgb(255, 49, 49);
   font-size: 2rem;
 }
 .vehicleDetails__info__price__discounted sup {

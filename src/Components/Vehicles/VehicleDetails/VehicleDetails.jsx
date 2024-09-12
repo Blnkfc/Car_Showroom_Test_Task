@@ -73,7 +73,7 @@ const VehicleDetails = () => {
         }
     }
 
-
+//&#x271A;
     const imgs = vehicleData?.images.map((i, index) => { return (<div> <img src={i} alt={`img${index}`} /> </div>) })
 
     //TODO CHECK FOR MESSAAGE AND RATING BEFORE ADDING REVIEW  
@@ -124,8 +124,8 @@ const VehicleDetails = () => {
                 </div>
                 <div className="commentSection__add" >
                     <h3>Add review</h3>
-                    <textarea onChange={hanldeReviewInputChange} name="Review area" value={reviewInputValue} >  </textarea>
-                    <button onClick={() => addReview()} >&#x271A;</button>
+                    <textarea onChange={hanldeReviewInputChange} name="Review area" value={reviewInputValue} maxLength={255}  >   </textarea>
+                    <button onClick={() => addReview()} >Add</button>
                     <div className="commentSection__add__starRating" >
                         {['★', '★', '★', '★', '★']
                             .map((s, index) => {

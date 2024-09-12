@@ -27,7 +27,7 @@ const FeedSidebar = () => {
             <section className='sidebar' >
                 <h2 className='sidebar__title' >Search </h2>
                 <div className='sidebar__search' >
-                    <input type="text" value={inputValue} onChange={handleInputChange} />
+                    <input type="text" value={inputValue} minlength="3" maxlength="20"   onChange={handleInputChange} />
                     <button  className='sidebar__search__searchBtn' onClick={handleSeacrh} > <img src="https://cdn-icons-png.flaticon.com/512/11741/11741045.png" alt="Search" /> </button>
                     <button className='sidebar__search__clear' onClick={() => setInputValue("")} style={{ display: inputValue == "" ? "none" : "inline-block" }} > X </button>
                 </div>
