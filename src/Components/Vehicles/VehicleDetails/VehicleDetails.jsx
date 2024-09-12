@@ -13,6 +13,7 @@ const VehicleDetails = () => {
     const [newRating, setNewRating] = useState()
     const { slug } = useParams()
 
+    //Settings for react-slick slider
     var settings = {
         arrows: true,
         dots: true,
@@ -22,6 +23,8 @@ const VehicleDetails = () => {
         className: 'vehicleDetails__carousel__imgWrapper',
     };
 
+
+    //Constructor for new reviews, used to add new review into localStorage
     class Review {
         constructor(rating, comment) {
             this.reviewerName = "Guest";
@@ -32,7 +35,7 @@ const VehicleDetails = () => {
         }
     }
 
-
+    //Fetching data based on slug from link
     useEffect(() => {
         const fetchVehicleData = async () => {
             try {
@@ -56,27 +59,27 @@ const VehicleDetails = () => {
     const handleStarRating = (rating) => {
         setNewRating(rating + 1)
     }
+    //Adding review if at least one of rating or review exists (reviews/questions idea)
     const addReview = () => {
-        if( newRating || reviewInputValue){
-        const review = new Review(newRating, reviewInputValue)
-        const reviewList = localStorage.getItem('reviewList') ? JSON.parse(localStorage.getItem('reviewList')) : []
-        reviewList.push(review)
+        if (newRating || reviewInputValue) {
+            const review = new Review(newRating, reviewInputValue)
+            const reviewList = localStorage.getItem('reviewList') ? JSON.parse(localStorage.getItem('reviewList')) : []
+            reviewList.push(review)
 
-        console.log(`addReview constructed review: ${JSON.stringify(review)}`)
-        console.log(`addReview stored Review: ${JSON.stringify(reviewList)}`)
-        localStorage.setItem('reviewList', JSON.stringify(reviewList))
-        setStoredReviews(reviewList)
-        setReviewInputValue('')
-        setNewRating(undefined)
-        }else{
+            console.log(`addReview constructed review: ${JSON.stringify(review)}`)
+            console.log(`addReview stored Review: ${JSON.stringify(reviewList)}`)
+            localStorage.setItem('reviewList', JSON.stringify(reviewList))
+            setStoredReviews(reviewList)
+            setReviewInputValue('')
+            setNewRating(undefined)
+        } else {
             alert('Rating and comment are empty, consider filling the form.')
         }
     }
 
-//&#x271A;
+    //list of images for slider
     const imgs = vehicleData?.images.map((i, index) => { return (<div> <img src={i} alt={`img${index}`} /> </div>) })
 
-    //TODO CHECK FOR MESSAAGE AND RATING BEFORE ADDING REVIEW  
     return (
         < >
             <div className="vehicleDetails" >

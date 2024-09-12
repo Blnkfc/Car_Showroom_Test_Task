@@ -12,7 +12,7 @@ const Header = () => {
                 <Link to='/' >Home</Link>
                 <div className="header__sidebar"  >
                     <button className='header__sidebar__expander' onClick={() => setIsExpanded(!isExpanded)} >&#9776;</button>
-                    <div className="header__sidebar__mobile" style={{display:isExpanded?"block":"none"}} >
+                    <div className="header__sidebar__mobile" style={{ display: isExpanded ? "block" : "none" }} >
                         <FeedSidebar />
                     </div>
                 </div>

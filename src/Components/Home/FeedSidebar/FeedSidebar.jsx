@@ -9,15 +9,19 @@ const FeedSidebar = () => {
     const tags = useStore((state) => state.tags)
     const sortParams = useStore((state) => state.sortParams)
 
-
+    //Updating input state in change.
     const handleInputChange = (event) => {
         setInputValue(event.target.value);
     };
+
+    //Using action to update query params for fetching
     const handleSeacrh = () => {
         if (inputValue != '') {
             setQueryParams(`search?q=${inputValue}`)
         } else { setQueryParams('') }
     }
+
+    //Searchinig on change instead of button press
     useEffect(() => {
         handleSeacrh()
     }, [inputValue])
@@ -27,8 +31,8 @@ const FeedSidebar = () => {
             <section className='sidebar' >
                 <h2 className='sidebar__title' >Search </h2>
                 <div className='sidebar__search' >
-                    <input type="text" value={inputValue} minlength="3" maxlength="20"   onChange={handleInputChange} />
-                    <button  className='sidebar__search__searchBtn' onClick={handleSeacrh} > <img src="https://cdn-icons-png.flaticon.com/512/11741/11741045.png" alt="Search" /> </button>
+                    <input type="text" value={inputValue} minlength="3" maxlength="20" onChange={handleInputChange} />
+                    <button className='sidebar__search__searchBtn' onClick={handleSeacrh} > <img src="https://cdn-icons-png.flaticon.com/512/11741/11741045.png" alt="Search" /> </button>
                     <button className='sidebar__search__clear' onClick={() => setInputValue("")} style={{ display: inputValue == "" ? "none" : "inline-block" }} > X </button>
                 </div>
                 <div className='sidebar__controls' >
@@ -44,7 +48,7 @@ const FeedSidebar = () => {
                     <div className='sidebar__controls__params'>
                         {sortParams.map((p) => {
                             if (p) {
-                                return <ParamBtn data={p} /> 
+                                return <ParamBtn data={p} />
                             }
                         })}
                     </div>

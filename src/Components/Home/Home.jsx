@@ -8,7 +8,6 @@ import FeedSidebar from "./FeedSidebar/FeedSidebar.jsx"
 const Home = () => {
     const [vehicleList, setVehicleList] = useState([])
     const queryParams = useStore((state) => state.queryParams)
-    const setQueryParams = useStore((state) => state.setQueryParams)
 
 
     useEffect(() => {
@@ -47,7 +46,7 @@ const Home = () => {
 
                 </section>
                 <div className="homepage__sidebar">
-                <FeedSidebar />
+                    <FeedSidebar />
                 </div>
             </div>
         </>

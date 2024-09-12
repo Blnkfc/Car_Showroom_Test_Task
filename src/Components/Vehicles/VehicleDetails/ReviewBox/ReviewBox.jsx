@@ -5,7 +5,7 @@ const ReviewBox = (props) => {
 
     const date = new Date(props?.data.date)
 
-
+    //short form of email for smaller screen resolutions
     const emailShortcut = (props?.data.reviewerEmail).split("@")[0]
 
     return (
